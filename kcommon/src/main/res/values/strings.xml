@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Common</string>
+    <string name="reload">RELOAD</string>
+    <string name="app_loading">Loading...</string>
+</resources>

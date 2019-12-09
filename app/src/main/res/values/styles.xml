@@ -1,0 +1,29 @@
+<resources>
+
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <!--<item name="android:windowBackground">@drawable/bg_window</item>-->
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowDisablePreview">true</item>
+        <item name="android:textViewStyle">@style/MyTestviewStyle</item>
+        <item name="android:scrollbars">none</item>
+        <item name="android:overScrollMode">never</item>
+    </style>
+
+    <style name="MyTestviewStyle" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="SplashTheme" parent="AppTheme">
+        <item name="windowNoTitle">true</item> 
+        <item name="android:windowFullscreen">true</item>
+    </style>
+</resources>
