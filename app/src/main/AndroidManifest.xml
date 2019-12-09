@@ -8,7 +8,7 @@
                  android:roundIcon="@mipmap/ic_launcher_round"
                  android:supportsRtl="true"
                  android:theme="@style/AppTheme">
-        <activity android:name="com.sm.nadaman.ui.activity.WellComeActivity"
+        <activity android:name="com.sm.nadaman.ui.activity.SplashActivity"
                   android:theme="@style/SplashTheme"
                   android:screenOrientation="portrait"
                   android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation">
@@ -18,5 +18,10 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <activity android:name="com.sm.nadaman.ui.activity.WellComeActivity"
+                  android:theme="@style/SplashTheme"
+                  android:screenOrientation="portrait"
+                  android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"/>
     </application>
 </manifest>
