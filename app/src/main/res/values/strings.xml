@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Nadaman</string>
+    <string name="logon">注册</string>
+    <string name="login">登录</string>
 </resources>

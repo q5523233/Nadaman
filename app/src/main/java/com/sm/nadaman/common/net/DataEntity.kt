@@ -1,12 +1,8 @@
 package com.sm.nadaman.common.net
 
-import android.os.Parcelable
 import com.blackflagbin.kcommon.entity.net.IHttpResultEntity
 import com.blankj.utilcode.util.SPUtils
-import com.techne.nomnompos.common.SP_NAME
-import com.techne.nomnompos.common.getTimeFormat
-import kotlinx.android.parcel.Parcelize
-import java.util.*
+import com.sm.nadaman.common.SP_NAME
 
 
 //最外层数据类

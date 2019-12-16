@@ -26,4 +26,13 @@
         <item name="windowNoTitle">true</item> 
         <item name="android:windowFullscreen">true</item>
     </style>
+    <style name="et_style">
+        <item name="android:textSize">14sp</item>
+        <item name="android:padding">9dp</item>
+        <item name="android:textColor">@color/ff333333</item>
+        <item name="android:textColorHint">@color/d8d8d8</item>
+        <item name="android:background">@drawable/et_bg</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
 </resources>

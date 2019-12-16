@@ -1,5 +1,6 @@
 package com.sm.nadaman.ui.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,8 @@ import com.sm.nadaman.R
 import com.sm.nadaman.ui.adapter.WellComeAdapter
 import com.trello.rxlifecycle2.components.RxActivity
 import kotlinx.android.synthetic.main.activity_wellcome.*
+import org.jetbrains.anko.clearTop
+import org.jetbrains.anko.startActivity
 
 
 class WellComeActivity : RxActivity() {
@@ -71,5 +74,11 @@ class WellComeActivity : RxActivity() {
                 }
             }
         })
+
+        iv_indicator.setOnClickListener {
+            if (viewpage.currentItem == 3){
+                startActivity(Intent(this,SelectEcgActivity::class.java).clearTop())
+            }
+        }
     }
 }

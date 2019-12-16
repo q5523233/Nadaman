@@ -2,19 +2,13 @@ package com.sm.nadaman.common
 
 import android.app.Application
 import android.content.Context
-import android.content.Intent
 import android.content.SharedPreferences
 import androidx.lifecycle.MutableLiveData
 import com.blackflagbin.kcommon.base.BaseFragment
 import com.blackflagbin.kcommon.facade.CommonLibrary
-import com.techne.nomnompos.app.App
 import com.sm.nadaman.common.net.HttpResultEntity
 import com.sm.nadaman.common.net.UserEntity
-import com.techne.nomnompos.common.SP_NAME
-import com.techne.nomnompos.common.gson
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
-import org.jetbrains.anko.clearTask
-import org.jetbrains.anko.newTask
 
 
 object Account {

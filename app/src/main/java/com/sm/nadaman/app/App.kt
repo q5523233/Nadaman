@@ -3,7 +3,6 @@ package com.techne.nomnompos.app
 import android.app.Activity
 import android.app.Application
 import android.content.Context
-import android.content.Intent
 import android.content.pm.PackageInfo
 import android.os.Bundle
 import android.telephony.TelephonyManager
@@ -17,12 +16,13 @@ import com.scwang.smartrefresh.layout.header.ClassicsHeader
 import com.sm.nadaman.BuildConfig
 import com.sm.nadaman.R
 import com.sm.nadaman.common.Account
+import com.sm.nadaman.common.Config
 import com.sm.nadaman.common.http.ApiService
 import com.sm.nadaman.common.http.CacheService
-import com.techne.nomnompos.common.Loge
-import com.techne.nomnompos.common.SIGNOUT_CODE_FORBIDDEN
-import com.techne.nomnompos.common.SIGNOUT_CODE_SINGLE
-import com.techne.nomnompos.common.SP_NAME
+import com.sm.nadaman.common.Loge
+import com.sm.nadaman.common.SIGNOUT_CODE_FORBIDDEN
+import com.sm.nadaman.common.SIGNOUT_CODE_SINGLE
+import com.sm.nadaman.common.SP_NAME
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -181,6 +181,7 @@ class App : Application(), Application.ActivityLifecycleCallbacks {
         super.onCreate()
         app = this
         Account(this)
+        Config(this)
         // 注册Activity的生命周期监听，用来控制退出的
         registerActivityLifecycleCallbacks(this)
         //初始化LeakCanary，用于测试内存泄漏

@@ -1,4 +1,4 @@
-package com.techne.nomnompos.common
+package com.sm.nadaman.common
 
 import android.content.Context
 import android.os.Bundle
