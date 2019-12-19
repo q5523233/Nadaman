@@ -1,11 +1,11 @@
-package com.sm.nadaman.ui.ui.fragment
+package com.sm.nadaman.ui.fragment
 
 
 import com.scwang.smartrefresh.layout.SmartRefreshLayout
 import com.blackflagbin.kcommon.base.BaseFragment
 import com.kennyc.view.MultiStateView
-import com.sm.nadaman.ui.mvp.contract.LoginContract
-import com.sm.nadaman.ui.mvp.presenter.LoginPresenter
+import com.sm.nadaman.mvp.contract.LoginContract
+import com.sm.nadaman.mvp.presenter.LoginPresenter
 import com.sm.nadaman.R
 import com.sm.nadaman.common.http.ApiService
 import com.sm.nadaman.common.http.CacheService

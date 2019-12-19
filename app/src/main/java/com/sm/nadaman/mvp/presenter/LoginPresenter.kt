@@ -1,8 +1,8 @@
-package com.sm.nadaman.ui.mvp.presenter
+package com.sm.nadaman.mvp.presenter
 
 import com.blackflagbin.kcommon.base.BasePresenter
-import com.sm.nadaman.ui.mvp.contract.LoginContract
-import com.sm.nadaman.ui.mvp.model.LoginModel
+import com.sm.nadaman.mvp.contract.LoginContract
+import com.sm.nadaman.mvp.model.LoginModel
 
 class LoginPresenter(iLoginView: LoginContract.ILoginView) :
     BasePresenter<LoginContract.ILoginModel, LoginContract.ILoginView>(iLoginView), LoginContract.ILoginPresenter {

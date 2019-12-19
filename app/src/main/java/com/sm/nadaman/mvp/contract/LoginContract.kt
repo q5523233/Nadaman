@@ -1,4 +1,4 @@
-package com.sm.nadaman.ui.mvp.contract
+package com.sm.nadaman.mvp.contract
 
 import com.blackflagbin.kcommon.base.IBasePresenter
 import com.blackflagbin.kcommon.base.IBaseView

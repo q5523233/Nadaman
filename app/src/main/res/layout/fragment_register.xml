@@ -29,46 +29,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         <EditText
+                android:drawableStart="@mipmap/name"
+                android:id="@+id/et_name"
+                android:hint="真实姓名(用于心电报告中显示)"
+                style="@style/et_style"/>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+            app:cardBackgroundColor="@null"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            app:cardElevation="1dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <EditText
                 android:drawableStart="@mipmap/password"
                 android:id="@+id/et_password"
                 android:inputType="textPassword"
                 android:hint="@string/password"
                 style="@style/et_style"/>
-        <ImageView
-                android:id="@+id/iv_error_password"
-                android:visibility="gone"
-                android:src="@mipmap/error_input_password"
-                android:layout_gravity="end|center_vertical"
-                android:layout_marginEnd="15dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
     </androidx.cardview.widget.CardView>
 
-    <FrameLayout
-            android:layout_marginTop="12dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp" android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        <CheckBox
-                android:id="@+id/cb_remember"
-                android:drawableStart="@drawable/check_password"
-                android:button="@null"
-                android:background="@null"
-                android:textSize="15sp"
-                android:drawablePadding="5dp"
-                android:textColor="@color/ff9f9f9f"
-                android:text="@string/remember_password"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        <TextView
-                android:id="@+id/tv_reset_password"
-                android:text="@string/reset_password"
-                android:textSize="15sp"
-                android:layout_gravity="end"
-                android:textColor="@color/ff9f9f9f"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-    </FrameLayout>
     <TextView
             android:id="@+id/tv_confirm"
             android:layout_marginTop="50dp"
