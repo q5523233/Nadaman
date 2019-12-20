@@ -6,4 +6,8 @@
     <string name="password">密码</string>
     <string name="remember_password">记住密码</string>
     <string name="reset_password">重置密码</string>
+    <string name="confirm">确认</string>
+    <string name="cancel">取消</string>
+    <string name="define">确定</string>
+    <string name="exit">退出</string>
 </resources>

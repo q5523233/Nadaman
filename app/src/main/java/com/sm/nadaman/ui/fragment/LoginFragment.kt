@@ -9,8 +9,10 @@ import com.sm.nadaman.mvp.presenter.LoginPresenter
 import com.sm.nadaman.R
 import com.sm.nadaman.common.http.ApiService
 import com.sm.nadaman.common.http.CacheService
+import com.sm.nadaman.common.widget.ResetPasswordDialog
+import kotlinx.android.synthetic.main.fragment_login.*
 
-class LoginFragment : BaseFragment<ApiService, CacheService, LoginPresenter, Any?>(), LoginContract.ILoginView {
+class LoginFragment(val parent:LoginAndLogonFragment) : BaseFragment<ApiService, CacheService, LoginPresenter, Any?>(), LoginContract.ILoginView {
 
     override val swipeRefreshView: SmartRefreshLayout?
         get() = null
@@ -26,6 +28,11 @@ class LoginFragment : BaseFragment<ApiService, CacheService, LoginPresenter, Any
 
     override fun initView() {
         super.initView()
+        tv_reset_password.setOnClickListener {
+            ResetPasswordDialog(context!!) {
+                parent.toReset()
+            }.show()
+        }
     }
 
     override fun initData() {
@@ -36,4 +43,7 @@ class LoginFragment : BaseFragment<ApiService, CacheService, LoginPresenter, Any
 
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+    }
 }

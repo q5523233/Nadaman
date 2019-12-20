@@ -14,22 +14,23 @@ import com.sm.nadaman.R
 import com.scwang.smartrefresh.layout.SmartRefreshLayout
 import com.blackflagbin.kcommon.base.BaseFragment
 import com.kennyc.view.MultiStateView
-import kotlinx.android.synthetic.main.fragment_login_and_logon.*
+import org.jetbrains.anko.bundleOf
+import org.jetbrains.anko.sdk25.coroutines.onClick
+import org.jetbrains.anko.toast
+import kotlinx.android.synthetic.main.fragment_reset_password.*
 
 import com.sm.nadaman.common.http.ApiService
 import com.sm.nadaman.common.http.CacheService
-import com.sm.nadaman.mvp.contract.LoginAndLogonContract
-import com.sm.nadaman.mvp.presenter.LoginAndLogonPresenter
+import com.sm.nadaman.mvp.contract.ResetPasswordContract
+import com.sm.nadaman.mvp.presenter.ResetPasswordPresenter
 import org.jetbrains.anko.findOptional
 import androidx.appcompat.widget.Toolbar
-import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.sm.nadaman.common.Config
-import com.sm.nadaman.ui.adapter.LoginAndLogonFragmentAdapter
-import org.jetbrains.anko.forEachChild
+import com.sm.nadaman.common.finish
 
-class LoginAndLogonFragment : BaseFragment<ApiService, CacheService, LoginAndLogonPresenter, Any?>(),
-    LoginAndLogonContract.ILoginAndLogonView {
+class ResetPasswordFragment : BaseFragment<ApiService, CacheService, ResetPasswordPresenter, Any?>(),
+    ResetPasswordContract.IResetPasswordView {
 
     override val swipeRefreshView: SmartRefreshLayout?
         get() = null
@@ -38,20 +39,10 @@ class LoginAndLogonFragment : BaseFragment<ApiService, CacheService, LoginAndLog
         get() = null
 
     override val layoutResId: Int
-        get() = R.layout.fragment_login_and_logon
+        get() = R.layout.fragment_reset_password
 
-    override val presenter: LoginAndLogonPresenter
-        get() = LoginAndLogonPresenter(this)
-
-    val adapter by lazy {
-        LoginAndLogonFragmentAdapter(fragmentManager!!,list)
-    }
-    val list by lazy {
-        ArrayList<Fragment>().apply {
-            add(RegisterFragment())
-            add(LoginFragment(this@LoginAndLogonFragment))
-        }
-    }
+    override val presenter: ResetPasswordPresenter
+        get() = ResetPasswordPresenter(this)
 
     override fun initView() {
         super.initView()
@@ -77,14 +68,12 @@ class LoginAndLogonFragment : BaseFragment<ApiService, CacheService, LoginAndLog
             setSpan(ForegroundColorSpan(Color.parseColor("#5f5f5f")),18, length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
 
         }
-        viewpage.adapter = adapter
-        tablayout.setupWithViewPager(viewpage)
 
-        tablayout.getTabAt(0)?.text = getString(R.string.logon)
-        tablayout.getTabAt(1)?.text = getString(R.string.login)
+        tv_exit.setOnClickListener {
+            finish()
+        }
 
         cl_host.setBackgroundResource(if (Config.isSingleEcg) R.mipmap.bg_login_ecg1 else 0)
-
     }
 
     override fun initData() {
@@ -93,14 +82,6 @@ class LoginAndLogonFragment : BaseFragment<ApiService, CacheService, LoginAndLog
 
     override fun showContentView(data: Any?) {
 
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-    }
-
-    fun toReset() {
-        findNavController1()?.navigate(LoginAndLogonFragmentDirections.actionLoginAndLogonFragmentToResetPasswordFragment())
     }
 
 }

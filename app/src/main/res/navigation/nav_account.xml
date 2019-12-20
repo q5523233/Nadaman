@@ -3,9 +3,14 @@
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools"
             android:id="@+id/nav_account.xml"
-            app:startDestination="@id/loginAndLogonFragment"
-            tools:ignore="UnusedNavigation">
+            app:startDestination="@id/loginAndLogonFragment">
 
     <tab_fragment android:id="@+id/loginAndLogonFragment" android:name="com.sm.nadaman.ui.fragment.LoginAndLogonFragment"
-              android:label="LoginAndLogonFragment"/>
+              android:label="LoginAndLogonFragment">
+        <action android:id="@+id/action_loginAndLogonFragment_to_resetPasswordFragment"
+                app:destination="@id/resetPasswordFragment"/>
+    </tab_fragment>
+    <tab_fragment android:id="@+id/resetPasswordFragment"
+                  android:name="com.sm.nadaman.ui.fragment.ResetPasswordFragment"
+                  android:label="ResetPasswordFragment"/>
 </navigation>
