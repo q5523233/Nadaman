@@ -35,7 +35,7 @@ dependencies {
 //    api 'com.android.support:recyclerview-v7:28.0.0'
     api 'androidx.appcompat:appcompat:1.1.0-rc01'
     api 'androidx.constraintlayout:constraintlayout:2.0.0-beta3'
-    api 'org.jetbrains.anko:anko:0.10.3'
+    api 'org.jetbrains.anko:anko:0.10.5'
     api 'com.android.support:multidex:1.0.3'
     api 'com.squareup.okhttp3:okhttp:3.10.0'
     api 'com.squareup.okhttp3:logging-interceptor:3.12.1'
