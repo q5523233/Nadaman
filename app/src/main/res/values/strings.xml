@@ -10,4 +10,7 @@
     <string name="cancel">取消</string>
     <string name="define">确定</string>
     <string name="exit">退出</string>
+
+    <string name="ble_not_supported">该设备不支持ble</string>
+    <string name="error_bluetooth_not_supported">该设备不支持蓝牙</string>
 </resources>

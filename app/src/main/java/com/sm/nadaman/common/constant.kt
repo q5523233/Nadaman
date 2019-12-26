@@ -17,12 +17,33 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.bumptech.glide.request.RequestOptions
 import com.google.gson.Gson
+import java.math.BigDecimal
+import java.text.DecimalFormat
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
-import java.math.BigDecimal
-import java.text.DecimalFormat
 
+const val ACTION_CHANGE_SELECT_USER = "ACTION_CHANGE_SELECT_USER"
+const val ACTION_DISCONNECT_BLE = "ACTION_DISCONNECT_BLE"
+const val ACTION_GET_HR = "ACTION_GET_HR"
+
+const val ECG12_BACKLAYOUT_YNUMBER = 24 * 5
+const val ECG2_BACKLAYOUT_YNUMBER = 10 * 5
+
+const val REQUEST_ENABLE_BT = 1
+const val REQUEST_CODE_OPEN_GPS = 2
+const val REQUEST_CODE_PERMISSION_LOCATION = 3
+
+//ecg2.0
+const val ECG2_BLE_DEVICE_NAME = "VeanEcg2.0"
+public val GET_ECG2_WAVEFORM_ON = byteArrayOf(0xfa.toByte(), 0xfa.toByte(), 0xfa.toByte(), 0x02, 0x02, 0x01, 0x03)
+//ecg12.0
+const val ECG12_BLE_DEVICE_NAME = "VeanEcg12.0"
+public val GET_ECG12_WAVEFORM_ON = byteArrayOf(0xfa.toByte(), 0x02, 0x12, 0x01, 0x13)
+
+
+//时间格式
+val TIME_FORMAT_YMDHMS = "yyyy-MM-dd HH:mm:ss"
 
 const val SP_NAME = "Nomnompos"
 //选择图片
@@ -134,11 +155,13 @@ val gson by lazy { Gson() }
 fun ImageView.loadImage(url: Int) {
     Glide.with(this).load(url).into(this)
 }
+
 fun ImageView.loadCircleImage(url: String) {
     Glide.with(this).load(url).apply(
         RequestOptions.bitmapTransform(CircleCrop())
     ).into(this)
 }
+
 fun ImageView.loadImage(url: String, default: Int = -1) {
     Glide.with(this).load(url).apply(
         RequestOptions().placeholder(default)
@@ -182,7 +205,7 @@ fun EditText.addTextWatcher(
         }
 
         override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-            beforeChanged?.invoke(s,start,count, after)
+            beforeChanged?.invoke(s, start, count, after)
         }
 
         override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
@@ -191,7 +214,7 @@ fun EditText.addTextWatcher(
     })
 }
 
-fun BigDecimal.setScaleForMoney(newScale: Int): String{
+fun BigDecimal.setScaleForMoney(newScale: Int): String {
     return DecimalFormat("###,###.00").format(this.setScale(2))
 }
 
@@ -211,7 +234,7 @@ fun getDayRange(year: Int, mouth: Int, day: Int): List<Long> {
     return list
 }
 
-fun getDayRange(curDate:Calendar): List<Long> {
+fun getDayRange(curDate: Calendar): List<Long> {
     val list = ArrayList<Long>()
     val calendar = java.util.Calendar.getInstance()
     calendar.set(java.util.Calendar.YEAR, curDate.get(Calendar.YEAR))

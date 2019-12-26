@@ -12,7 +12,7 @@ import com.sm.nadaman.common.http.CacheService
 import com.sm.nadaman.mvp.contract.RegisterContract
 import com.sm.nadaman.mvp.presenter.RegisterPresenter
 
-class RegisterFragment : BaseFragment<ApiService, CacheService, RegisterPresenter, Any?>(),
+class RegisterFragment(val parent:LoginAndLogonFragment) : BaseFragment<ApiService, CacheService, RegisterPresenter, Any?>(),
     RegisterContract.IRegisterView {
 
     override val swipeRefreshView: SmartRefreshLayout?
@@ -29,6 +29,10 @@ class RegisterFragment : BaseFragment<ApiService, CacheService, RegisterPresente
 
     override fun initView() {
         super.initView()
+
+        tv_confirm.setOnClickListener {
+            parent.toScanBle()
+        }
     }
 
     override fun initData() {

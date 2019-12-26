@@ -33,6 +33,9 @@ class LoginFragment(val parent:LoginAndLogonFragment) : BaseFragment<ApiService,
                 parent.toReset()
             }.show()
         }
+        tv_confirm.setOnClickListener {
+            parent.toScanBle()
+        }
     }
 
     override fun initData() {

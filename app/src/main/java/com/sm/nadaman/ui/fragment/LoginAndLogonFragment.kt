@@ -48,7 +48,7 @@ class LoginAndLogonFragment : BaseFragment<ApiService, CacheService, LoginAndLog
     }
     val list by lazy {
         ArrayList<Fragment>().apply {
-            add(RegisterFragment())
+            add(RegisterFragment(this@LoginAndLogonFragment))
             add(LoginFragment(this@LoginAndLogonFragment))
         }
     }
@@ -101,6 +101,11 @@ class LoginAndLogonFragment : BaseFragment<ApiService, CacheService, LoginAndLog
 
     fun toReset() {
         findNavController1()?.navigate(LoginAndLogonFragmentDirections.actionLoginAndLogonFragmentToResetPasswordFragment())
+    }
+
+
+    fun toScanBle() {
+        findNavController1()?.navigate(LoginAndLogonFragmentDirections.actionLoginAndLogonFragmentToScanBleFragment())
     }
 
 }

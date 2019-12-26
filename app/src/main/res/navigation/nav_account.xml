@@ -9,8 +9,14 @@
               android:label="LoginAndLogonFragment">
         <action android:id="@+id/action_loginAndLogonFragment_to_resetPasswordFragment"
                 app:destination="@id/resetPasswordFragment"/>
+        <action android:id="@+id/action_loginAndLogonFragment_to_scanBleFragment"
+                app:destination="@id/scanBleFragment" app:enterAnim="@anim/left_in" app:exitAnim="@anim/right_out"
+                app:popEnterAnim="@anim/right_in" app:popExitAnim="@anim/left_out"/>
     </tab_fragment>
     <tab_fragment android:id="@+id/resetPasswordFragment"
                   android:name="com.sm.nadaman.ui.fragment.ResetPasswordFragment"
                   android:label="ResetPasswordFragment"/>
+    <tab_fragment android:id="@+id/scanBleFragment"
+                  android:name="com.sm.nadaman.ui.fragment.ScanBleFragment"
+                  android:label="ScanBleFragment"/>
 </navigation>
