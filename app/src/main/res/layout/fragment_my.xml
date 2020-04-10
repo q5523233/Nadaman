@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+                android:id="@+id/toolbar"
+                android:text="我的"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:background="@mipmap/toolbar"
+                android:paddingTop="17dp"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+    <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <ImageView
+                android:layout_margin="20dp"
+                android:id="@+id/iv_head"
+                android:src="@mipmap/default_head"
+                android:layout_width="@dimen/dp50"
+                android:layout_height="@dimen/dp50"/>
+        <TextView
+                android:id="@+id/tv_name"
+                android:textColor="@color/ff333333"
+                android:textSize="20sp"
+                android:layout_marginStart="100dp"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        <ImageView
+                android:layout_marginEnd="20dp"
+                android:id="@+id/iv_edit"
+                android:src="@mipmap/edit"
+                android:layout_gravity="end|center_vertical"
+                android:layout_width="25dp"
+                android:layout_height="25dp"/>
+    </FrameLayout>
+
+    <TextView
+            android:id="@+id/tv_history"
+            android:text="历史报告查看"
+            android:drawableStart="@mipmap/my_history"
+            android:drawableEnd="@mipmap/go"
+            style="@style/my_textview" />
+
+    <TextView
+            android:id="@+id/tv_handle_guide"
+            android:text="@string/handle_guide"
+            android:drawableStart="@mipmap/my_handle_guide"
+            android:drawableEnd="@mipmap/go"
+            style="@style/my_textview" />
+
+    <TextView
+            android:id="@+id/tv_disclaimer"
+            android:text="@string/disclaimer"
+            android:drawableStart="@mipmap/my_disclaimer"
+            android:drawableEnd="@mipmap/go"
+            style="@style/my_textview" />
+
+    <TextView
+            android:id="@+id/tv_user_switch"
+            android:text="用户切换"
+            android:drawableStart="@mipmap/my_user_switch"
+            android:drawableEnd="@mipmap/go"
+            style="@style/my_textview" />
+
+    <TextView
+            android:id="@+id/tv_logout"
+            android:text="退出"
+            android:drawableStart="@mipmap/my_logout"
+            android:drawableEnd="@mipmap/go"
+            style="@style/my_textview" />
+</LinearLayout>

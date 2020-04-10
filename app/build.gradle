@@ -5,6 +5,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 apply plugin: "androidx.navigation.safeargs"
+apply plugin: 'org.greenrobot.greendao'
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -14,6 +15,10 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            abiFilters "armeabi"
+        }
     }
     buildTypes {
         debug {
@@ -32,6 +37,14 @@ android {
         }
     }
 
+
+    sourceSets {
+        main {
+            jniLibs.srcDir 'libs'
+            jni.srcDirs = []
+        }
+    }
+
     androidExtensions {
         experimental = true
     }
@@ -44,6 +57,20 @@ android {
     }
 }
 
+greendao {
+    //数据库的schema版本，也可以理解为数据库版本号
+    schemaVersion 5
+    //设置DaoMaster、DaoSession、Dao包名，也就是要放置这些类的包的全路径。
+    daoPackage 'com.sm.nadaman.common.dao'
+    //设置DaoMaster、DaoSession、Dao目录
+    targetGenDir 'src/main/java'
+}
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
 kotlin {
     experimental {
         coroutines 'enable'
@@ -54,9 +81,18 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 //    implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.core:core-ktx:1.0.1'
+    implementation 'com.github.pinguo-zhouwei:MZBannerView:v2.0.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    //greendao
+    implementation 'org.greenrobot:greendao:3.2.2'
+//    implementation 'org.greenrobot:greendao-generator:+'
+    implementation 'com.haibin:calendarview:3.6.7'
+    implementation 'com.lxj:xpopup:1.8.10-x'
     implementation project(path: ':kcommon')
     implementation project(path: ':FastBleLib')
+    implementation project(path: ':pickerview')
+    implementation project(path: ':matisse')
+//    implementation project(path: ':calendarview')
 }

@@ -13,4 +13,165 @@
 
     <string name="ble_not_supported">该设备不支持ble</string>
     <string name="error_bluetooth_not_supported">该设备不支持蓝牙</string>
+    <string name="choice_your_drive">请选择你想配对的设备</string>
+    <string name="ecg_measure">心电测量</string>
+    <string name="ecg_calendar">心电日历</string>
+    <string name="history_report">历史报告</string>
+    <string name="friend_follow">亲友关注</string>
+    <string name="my_setting">我的设置</string>
+    <string name="handle_guide">操作指南</string>
+    <string name="report">报告</string>
+    <string name="follow">关注</string>
+    <string name="mind">我的</string>
+    <string name="leadoff">电极脱落！</string>
+    <string name="heart_rate_high">心率过高，请注意！</string>
+    <string name="heart_rate_low">心率偏低，请注意！</string>
+    <string name="heart_rate_no_detected">未检测到心率！</string>
+    <string name="device_not_connect">设备未连接</string>
+    <string name="device_disconnect">设备已断开</string>
+    <string name="tip">*标有红点<font color="#E50214"><b>"·"</b></font>的日期存有心电记录，点选日期即可看详情</string>
+    <string name="disclaimer">免责申明</string>
+       <string-array name="report_result">
+           <item>状态不错，未检测到您心率异常，请继续保持良好的生活习惯</item>
+           <item>如您多次测量结果，异常风险预警都为轻度，请注意您的个人生活作息正常，切忌少吃辛辣食物</item>
+           <item>如您多次测量结果，异常风险预警都为中度，为了您的健康，请您及时咨询医师或专业人士</item>
+           <item>如您多次测量结果，异常风险预警都为重度，表示您的心脏风险异常高，建议您尽快并随时进行检查</item>
+       </string-array>
+    <string-array name="result">
+        <item>记录质量欠佳</item>
+        <item>左右上肢电极接反</item>
+        <item>导联脱落</item>
+        <item>逆钟向转位</item>
+        <item>顺钟向转位</item>
+        <item>肢导低电压</item>
+        <item>胸导低电压</item>
+        <item>低电压</item>
+        <item>QT间期延长</item>
+        <item>QT间期缩短</item>
+        <item>右位心(检查电极位置)</item>
+        <item>高大T波</item>
+        <item>ST段抬高</item>
+        <item>不确定心电轴</item>
+        <item>轻度心电轴左偏</item>
+        <item>心电轴右偏</item>
+        <item>显著心电轴右偏</item>
+        <item>心电轴左偏</item>
+        <item>S1S2S3图形</item>
+        <item>左心室高电压</item>
+        <item>V1为正T波</item>
+        <item>怀疑右心室肥大</item>
+        <item>怀疑左心室肥大</item>
+        <item>怀疑左心室肥大(此年龄段可能正常)</item>
+        <item>右心室肥大</item>
+        <item>左心房扩大</item>
+        <item>右心房扩大</item>
+        <item>右心室肥大(符合肺心病心电图改变)</item>
+        <item>双心房扩大</item>
+        <item>右心室肥大+右心房扩大</item>
+        <item>右心室肥大+左心房扩大</item>
+        <item>左心室肥大+左心房扩大</item>
+        <item>双心室肥大</item>
+        <item>左心室肥大</item>
+        <item>左心房负荷过重</item>
+        <item>短PR综合症</item>
+        <item>WPW综合症</item>
+        <item>I度房室传导阻滞</item>
+        <item>II度房室传导阻滞(文氏型)</item>
+        <item>II度房室传导阻滞(莫氏II型)</item>
+        <item>II度房室传导阻滞(2:1传导)</item>
+        <item>III房室传导阻滞</item>
+        <item>起搏器节律</item>
+        <item>RSR\'图形</item>
+        <item>不完全性右束支传导阻滞</item>
+        <item>室内传导阻滞</item>
+        <item>完全性右束支传导阻滞</item>
+        <item>完全性左束支传导阻滞</item>
+        <item>不完全性左束支传导阻滞</item>
+        <item>怀疑左前分支传导阻滞</item>
+        <item>左前分支传导阻滞</item>
+        <item>左后分支传导阻滞</item>
+        <item>两束支传导阻滞</item>
+        <item>三束支传导阻滞</item>
+        <item>梗塞周围传导阻滞</item>
+        <item>T波低平</item>
+        <item>T波倒置</item>
+        <item>怀疑轻度的ST-T异常</item>
+        <item>轻度的ST-T异常</item>
+        <item>ST-T异常</item>
+        <item>R波递增不良</item>
+        <item>异常Q波</item>
+        <item>心内膜下层梗塞</item>
+        <item>怀疑前壁心肌梗塞</item>
+        <item>可能前壁心肌梗塞</item>
+        <item>前壁心肌梗塞</item>
+        <item>前壁心肌梗塞(可能近期内)</item>
+        <item>前壁心肌梗塞(可能急性)</item>
+        <item>怀疑前间壁心肌梗塞</item>
+        <item>可能前间壁心肌梗塞</item>
+        <item>前间壁心肌梗塞</item>
+        <item>前间壁心肌梗塞(可能近期内)</item>
+        <item>怀疑侧壁心肌梗塞</item>
+        <item>可能侧壁心肌梗塞</item>
+        <item>侧壁心肌梗塞</item>
+        <item>侧壁心肌梗塞(可能近期内)</item>
+        <item>侧壁心肌梗塞(可能急性)</item>
+        <item>怀疑下壁心肌梗塞</item>
+        <item>可能下壁心肌梗塞</item>
+        <item>下壁心肌梗塞</item>
+        <item>下壁心肌梗塞(可能近期内)</item>
+        <item>下壁心肌梗塞(可能急性)</item>
+        <item>怀疑后壁心肌梗塞或逆钟向转位</item>
+        <item>可能后壁心肌梗塞</item>
+        <item>窦性心律</item>
+        <item>冠状静脉窦节律</item>
+        <item>怀疑左心房节律</item>
+        <item>交接界性节律</item>
+        <item>房室分离</item>
+        <item>无法分析、请重新记录</item>
+        <item>显著窦性心动过缓</item>
+        <item>窦性心动过缓</item>
+        <item>窦性心动过速</item>
+        <item>心动过速</item>
+        <item>心动过缓</item>
+        <item>显著心动过速</item>
+        <item>显著心动过缓</item>
+        <item>窦性心律不齐</item>
+        <item>逸博</item>
+        <item>房性期前收缩</item>
+        <item>频发心房期前收缩</item>
+        <item>房性期前收缩二联律</item>
+        <item>房性期前收缩三联律</item>
+        <item>室性期前收缩</item>
+        <item>频发室性期前收缩</item>
+        <item>室性期前收缩二联律</item>
+        <item>室性期前收缩三联律</item>
+        <item>短阵房性期前收缩</item>
+        <item>短阵室性期前收缩</item>
+        <item>窦房传导阻滞</item>
+        <item>房性期前收缩未下传</item>
+        <item>成对房性期前收缩</item>
+        <item>成对室性期前收缩</item>
+        <item>室上性心动过速</item>
+        <item>室性心动过速</item>
+        <item>室性逸博节律</item>
+        <item>室性自主节律</item>
+        <item>心房颤动</item>
+        <item>心房扑动</item>
+        <item>无法确定的心律不齐</item>
+    </string-array>
+
+    <string-array name="ecgTitles">
+        <item>I</item>
+        <item>II</item>
+        <item>III</item>
+        <item>aVR</item>
+        <item>aVL</item>
+        <item>aVF</item>
+        <item>V1</item>
+        <item>V2</item>
+        <item>V3</item>
+        <item>V4</item>
+        <item>V5</item>
+        <item>V6</item>
+    </string-array>
 </resources>

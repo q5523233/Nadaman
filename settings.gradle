@@ -1,1 +1,1 @@
-include ':app', ':kcommon', ':FastBleLib'
+include ':app', ':kcommon', ':FastBleLib', ':pickerview', ':wheelview', ':matisse'

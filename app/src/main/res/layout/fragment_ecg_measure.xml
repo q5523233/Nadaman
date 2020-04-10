@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#6CB3C1">
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.6588" />
+
+    <ImageView
+            android:id="@+id/iv_ecg_measure_bg"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="30dp"
+            android:src="@mipmap/ecg_measure_bg"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+            android:id="@+id/tv_bpm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:text="___"
+            android:textColor="#4E457B"
+            android:textSize="38sp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_ecg_measure_bg"
+            app:layout_constraintEnd_toStartOf="@id/iv_bpm"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/iv_ecg_measure_bg" />
+
+    <ImageView
+            android:id="@+id/iv_bpm"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@mipmap/bpm"
+            app:layout_constraintBottom_toBottomOf="@id/tv_bpm"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_bpm"
+            app:layout_constraintTop_toTopOf="@id/tv_bpm" />
+
+    <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="00:00:00"
+            android:textColor="#4E457B"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_bpm" />
+
+    <ImageView
+            android:id="@+id/rb_fast"
+            android:layout_width="120dp"
+            android:layout_height="65dp"
+            android:background="@drawable/fastmeasure"
+            app:layout_constraintBottom_toBottomOf="@id/iv_ecg_measure_bg"
+            app:layout_constraintEnd_toStartOf="@id/rb_manual"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="@id/iv_ecg_measure_bg"
+            app:layout_constraintTop_toBottomOf="@id/iv_ecg_measure_bg" />
+
+    <ImageView
+            android:id="@+id/rb_manual"
+            android:layout_width="120dp"
+            android:layout_height="65dp"
+            android:background="@drawable/manualmeasure"
+            app:layout_constraintBottom_toBottomOf="@id/rb_fast"
+            app:layout_constraintEnd_toEndOf="@id/iv_ecg_measure_bg"
+            app:layout_constraintStart_toEndOf="@id/rb_fast"
+            app:layout_constraintTop_toTopOf="@id/rb_fast" />
+
+    <RadioGroup
+            android:id="@+id/rg_mode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@id/guideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+        <RadioButton
+                android:id="@+id/rb_stand"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:background="@drawable/mode_stand"
+                android:button="@null"
+                android:checked="true" />
+
+        <RadioButton
+                android:id="@+id/rb_walk"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:background="@drawable/mode_walk"
+                android:button="@null" />
+
+        <RadioButton
+                android:id="@+id/rb_run"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:background="@drawable/mode_run"
+                android:button="@null" />
+    </RadioGroup>
+
+    <com.sm.nadaman.common.widget.ecg.BackLayout
+            android:id="@+id/back_layout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/guideline" />
+
+    <com.sm.nadaman.common.widget.ecg.WaveRoseView
+            android:id="@+id/layout_wave"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/guideline" />
+
+    <TextView
+            android:id="@+id/tv_augment_mv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="20dp"
+            android:text="增益：10mm/mv"
+            android:textColor="@color/black_text"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@id/layout_wave"
+            app:layout_constraintTop_toTopOf="@id/layout_wave" />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="走速：25mm/s"
+            android:textColor="@color/black_text"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@id/tv_augment_mv"
+            app:layout_constraintTop_toBottomOf="@id/tv_augment_mv" />
+</androidx.constraintlayout.widget.ConstraintLayout>

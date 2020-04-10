@@ -10,7 +10,7 @@ class ProgressDialog(val context: Context) {
         Dialog(context,R.style.progress_dialog).apply {
             setContentView(R.layout.dialog_loading)
             setCancelable(false)
-            window.setBackgroundDrawableResource(android.R.color.transparent)
+            window?.setBackgroundDrawableResource(android.R.color.transparent)
         }
     }
 

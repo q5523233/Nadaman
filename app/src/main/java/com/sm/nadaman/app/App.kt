@@ -23,6 +23,10 @@ import com.sm.nadaman.common.Loge
 import com.sm.nadaman.common.SIGNOUT_CODE_FORBIDDEN
 import com.sm.nadaman.common.SIGNOUT_CODE_SINGLE
 import com.sm.nadaman.common.SP_NAME
+import com.sm.nadaman.common.bean.User
+import com.sm.nadaman.common.dao.DaoSession
+import com.sm.nadaman.common.db.manager.UserDBController
+import com.sm.nadaman.common.utils.SpUtils
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -177,6 +181,10 @@ class App : Application(), Application.ActivityLifecycleCallbacks {
         MultiDex.install(this)
     }
 
+    fun getCurrentUserDaoSession(): DaoSession {
+        return UserDBController.getInstance().daoSession
+    }
+
     override fun onCreate() {
         super.onCreate()
         app = this
@@ -194,6 +202,10 @@ class App : Application(), Application.ActivityLifecycleCallbacks {
         LeakCanary.install(this)
 */
 
+//        var user:User? = SpUtils.getInstance().readObject("user", User::class.java)
+
+        UserDBController.getInstance().initBaseDB()
+        UserDBController.getInstance().switchUser(User("vea",true))
 
         //初始化CommonLibrary
         CommonLibrary.instance.initLibrary(

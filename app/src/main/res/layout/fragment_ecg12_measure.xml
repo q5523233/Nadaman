@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <androidx.viewpager.widget.ViewPager
+            android:id="@+id/act_measure_ecg12_layout_wave"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="70dp" />
+    <ImageView
+            android:id="@+id/go_home"
+            android:layout_marginTop="25dp"
+            android:layout_marginStart="25dp"
+            android:src="@mipmap/measure_gohome"
+            android:layout_width="25dp"
+            android:layout_height="25dp"/>
+    <ImageView
+            android:id="@+id/setting"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="25dp"
+            android:layout_gravity="end"
+            android:src="@mipmap/measure_setting"
+            android:layout_width="25dp"
+            android:layout_height="25dp"/>
+    <LinearLayout
+            android:background="@color/ecg12_color"
+            android:layout_gravity="bottom"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="70dp">
+
+        <TextView
+                android:layout_weight="1"
+                android:layout_marginStart="10dp"
+                android:id="@+id/act_measure_ecg12_tv_speed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="bottom"
+                android:text="25.0mm/s"
+                android:textColor="@color/ff333333"
+                android:textSize="12sp" />
+        <TextView
+                android:layout_weight="1"
+                android:layout_marginStart="7dp"
+                android:id="@+id/act_measure_ecg12_tv_augment_mv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:text="10.0mm/mV"
+                android:textColor="@color/ff333333"
+                android:textSize="12sp" />
+
+        <TextView
+                android:layout_weight="1"
+                android:id="@+id/tv_start"
+                android:gravity="center"
+                android:text="开始记录"
+                android:layout_marginStart="7dp"
+                android:textColor="@color/ecg12_color"
+                android:textSize="13sp"
+                android:background="@mipmap/start_measure_12"
+                android:layout_width="78dp"
+                android:layout_height="40dp"/>
+        <ImageView
+                android:layout_weight="1"
+                android:id="@+id/iv_mode"
+                android:src="@mipmap/walk_12"
+                android:layout_width="55dp"
+                android:layout_height="25dp"/>
+        <FrameLayout
+                android:layout_weight="3"
+                android:background="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+            <TextView
+                    android:id="@+id/tv_bpm"
+                    android:text="0"
+                    android:textStyle="bold"
+                    android:textSize="30sp"
+                    android:layout_gravity="center"
+                    android:drawablePadding="5dp"
+                    android:drawableEnd="@mipmap/bpm"
+                    android:background="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+        </FrameLayout>
+    </LinearLayout>
+</FrameLayout>

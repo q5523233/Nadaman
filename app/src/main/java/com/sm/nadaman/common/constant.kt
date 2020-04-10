@@ -17,6 +17,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.bumptech.glide.request.RequestOptions
 import com.google.gson.Gson
+import com.sm.nadaman.R
 import java.math.BigDecimal
 import java.text.DecimalFormat
 import java.text.ParseException
@@ -36,7 +37,8 @@ const val REQUEST_CODE_PERMISSION_LOCATION = 3
 
 //ecg2.0
 const val ECG2_BLE_DEVICE_NAME = "VeanEcg2.0"
-public val GET_ECG2_WAVEFORM_ON = byteArrayOf(0xfa.toByte(), 0xfa.toByte(), 0xfa.toByte(), 0x02, 0x02, 0x01, 0x03)
+public val GET_ECG2_WAVEFORM_ON =
+    byteArrayOf(0xfa.toByte(), 0xfa.toByte(), 0xfa.toByte(), 0x02, 0x02, 0x01, 0x03)
 //ecg12.0
 const val ECG12_BLE_DEVICE_NAME = "VeanEcg12.0"
 public val GET_ECG12_WAVEFORM_ON = byteArrayOf(0xfa.toByte(), 0x02, 0x12, 0x01, 0x13)
@@ -79,6 +81,10 @@ fun <T> LiveData<T>.observeX(owner: LifecycleOwner, block: (obj: T) -> Unit) {
 
 fun getTime(date: Date): String {
     return SimpleDateFormat("dd/MM/yyyy").format(date)
+}
+
+fun Date.getFormatTime(format: String): String {
+    return SimpleDateFormat(format).format(this)
 }
 
 fun getDateFromString(time: String): Date? {
@@ -153,16 +159,25 @@ fun NavController.navigate1(d: NavDirections) {
 val gson by lazy { Gson() }
 
 fun ImageView.loadImage(url: Int) {
-    Glide.with(this).load(url).into(this)
+    Glide.with(this).load(url).apply {
+
+    }.into(this)
 }
 
 fun ImageView.loadCircleImage(url: String) {
     Glide.with(this).load(url).apply(
-        RequestOptions.bitmapTransform(CircleCrop())
+        RequestOptions().placeholder(R.mipmap.default_head).circleCrop()
     ).into(this)
 }
-
-fun ImageView.loadImage(url: String, default: Int = -1) {
+fun stingToIntArr(arr: String, split: String): IntArray {
+    val strings = arr.split(split.toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
+    val intArr = IntArray(strings.size)
+    for (i in strings.indices) {
+        intArr[i] = Integer.parseInt(strings[i])
+    }
+    return intArr
+}
+fun ImageView.loadImage(url: String?, default: Int = -1) {
     Glide.with(this).load(url).apply(
         RequestOptions().placeholder(default)
             .diskCacheStrategy(DiskCacheStrategy.ALL)

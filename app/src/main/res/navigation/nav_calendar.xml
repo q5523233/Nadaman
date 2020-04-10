@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/nav_calendar.xml"
+        app:startDestination="@id/calendarFragment"
+        tools:ignore="UnusedNavigation">
+
+    <tab_fragment
+            android:id="@+id/calendarFragment"
+            android:name="com.sm.nadaman.ui.fragment.CalendarFragment"
+            android:label="CalendarFragment" >
+        <action
+                android:id="@+id/action_calendarFragment_to_reportListFragment"
+                app:destination="@id/reportListFragment"
+                app:enterAnim="@anim/left_in"
+                app:exitAnim="@anim/right_out"
+                app:popEnterAnim="@anim/right_in"
+                app:popExitAnim="@anim/left_out" />
+    </tab_fragment>
+    <tab_fragment
+            android:id="@+id/reportListFragment"
+            android:name="com.sm.nadaman.ui.fragment.ReportListFragment"
+            android:label="ReportListFragment" >
+        <argument
+                android:name="date"
+                app:argType="string" />
+    </tab_fragment>
+</navigation>

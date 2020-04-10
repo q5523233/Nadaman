@@ -249,7 +249,7 @@ public class WaveRoseView extends View {
 
         float x = (height - height / 12) * heightMultiple;
         num = num * (x / 200.0f);
-        Log.e("----", "getAmendHeight: "+num );
+//        Log.e("----", "getAmendHeight: "+num );
         if (num > 0) {
             return 0 - num + height / 2;
         } else {

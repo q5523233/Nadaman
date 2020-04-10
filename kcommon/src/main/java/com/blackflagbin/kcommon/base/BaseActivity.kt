@@ -133,7 +133,7 @@ abstract class BaseActivity<out A, out C, P : IBasePresenter, in D> : RxAppCompa
     override fun showSuccessView(data: D) {
         multiStateView?.let{
 //            TransitionManager.beginDelayedTransition(it)
-            it?.viewState = MultiStateView.VIEW_STATE_CONTENT
+            it.viewState = MultiStateView.VIEW_STATE_CONTENT
         }
         swipeRefreshView?.setEnableRefresh(true)
         showContentView(data)
@@ -208,7 +208,7 @@ abstract class BaseActivity<out A, out C, P : IBasePresenter, in D> : RxAppCompa
              * 点击空白位置 隐藏软键盘
              */
             val mInputMethodManager = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
-            return mInputMethodManager.hideSoftInputFromWindow(this.currentFocus.windowToken, 0)
+            return mInputMethodManager.hideSoftInputFromWindow(currentFocus.windowToken, 0)
         }
         return super.onTouchEvent(event)
     }

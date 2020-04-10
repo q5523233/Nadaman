@@ -7,6 +7,7 @@ import android.bluetooth.BluetoothManager;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.widget.Toast;
+
 import com.clj.fastble.BleManager;
 import com.clj.fastble.callback.BleGattCallback;
 import com.clj.fastble.callback.BleNotifyCallback;
@@ -82,9 +83,15 @@ public class BleUtils {
         return this.BLE_DEVICE_NAME.equals(ECG2_BLE_DEVICE_NAME);
     }
 
+    public boolean isConnected() {
+        if (bleDevice != null && bleManager.isConnected(bleDevice)) {
+            return true;
+        } else
+            return false;
+    }
+
     public void setBleDevice(BleDevice bleDevice) {
         this.bleDevice = bleDevice;
-
     }
 
     public void checkBle() {
@@ -152,6 +159,11 @@ public class BleUtils {
         bleManager.connect(bleDevice, bleGattCallback);
     }
 
+    public void removeNotifyCallback() {
+        if (isConnected())
+            bleManager.removeNotifyCallback(bleDevice, UUID_HEART_RATE_MEASUREMENT_CHARACTER_SYNC.toString());
+    }
+
     public void getService(List<BluetoothGattService> services) {
         for (BluetoothGattService service : services) {
             if (service.getUuid().toString().contains("18f0")) {
@@ -198,10 +210,12 @@ public class BleUtils {
         }
 
     }
-    public void stopNotify(){
-        if (bleDevice!=null)
-            bleManager.stopNotify(bleDevice,UUID_HEART_RATE_MEASUREMENT_SERVICES.toString(),UUID_HEART_RATE_MEASUREMENT_CHARACTER_SYNC.toString());
+
+    public void stopNotify() {
+        if (bleDevice != null)
+            bleManager.stopNotify(bleDevice, UUID_HEART_RATE_MEASUREMENT_SERVICES.toString(), UUID_HEART_RATE_MEASUREMENT_CHARACTER_SYNC.toString());
     }
+
     public void disconnect() {
         if (bleDevice != null && bleManager.isConnected(bleDevice)) {
             bleManager.disconnect(bleDevice);

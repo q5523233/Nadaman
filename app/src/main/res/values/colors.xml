@@ -2,11 +2,15 @@
 <resources>
     <color name="colorPrimary">#605E5E</color>
     <color name="colorPrimaryDark">#605E5E</color>
-    <color name="colorAccent">#51A9B4</color>
+    <color name="colorAccent">#B14C88</color>
     <color name="ecg1_color">#51A9B4</color>
+    <color name="ecg12_color">#A89CCC</color>
     <color name="ff9f9f9f">#9F9F9F</color>
     <color name="ff5f5f5f">#5F5F5F</color>
     <color name="d8d8d8">#D8D8D8</color>
     <color name="ff333333">#333333</color>
     <color name="cccccc">#cccccc</color>
+    <color name="CACACA">#cacaca</color>
+    <color name="ff8d8d8d">#8d8d8d</color>
+    <color name="fff7f7f5">#fff7f7f5</color>
 </resources>

@@ -25,6 +25,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.sm.nadaman.common.Config
+import com.sm.nadaman.common.navigate1
 import com.sm.nadaman.ui.adapter.LoginAndLogonFragmentAdapter
 import org.jetbrains.anko.forEachChild
 
@@ -55,6 +56,10 @@ class LoginAndLogonFragment : BaseFragment<ApiService, CacheService, LoginAndLog
 
     override fun initView() {
         super.initView()
+        if (Config.isSingleEcg.not()){
+            tablayout.setTabTextColors(resources.getColor(R.color.ff9f9f9f),resources.getColor(R.color.ecg12_color))
+            tablayout.setSelectedTabIndicatorColor(resources.getColor(R.color.ecg12_color))
+        }
         tv_terms.text = SpannableStringBuilder("登录表示你同意该软件的用户服务协议和隐私政策").apply {
             setSpan(object : ClickableSpan() {
                 override fun onClick(widget: View) {
@@ -83,7 +88,7 @@ class LoginAndLogonFragment : BaseFragment<ApiService, CacheService, LoginAndLog
         tablayout.getTabAt(0)?.text = getString(R.string.logon)
         tablayout.getTabAt(1)?.text = getString(R.string.login)
 
-        cl_host.setBackgroundResource(if (Config.isSingleEcg) R.mipmap.bg_login_ecg1 else 0)
+        cl_host.setBackgroundResource(if (Config.isSingleEcg) R.mipmap.bg_login_ecg1 else R.mipmap.bg_login_ecg12)
 
     }
 
@@ -100,12 +105,12 @@ class LoginAndLogonFragment : BaseFragment<ApiService, CacheService, LoginAndLog
     }
 
     fun toReset() {
-        findNavController1()?.navigate(LoginAndLogonFragmentDirections.actionLoginAndLogonFragmentToResetPasswordFragment())
+        findNavController1()?.navigate1(LoginAndLogonFragmentDirections.actionLoginAndLogonFragmentToResetPasswordFragment())
     }
 
 
     fun toScanBle() {
-        findNavController1()?.navigate(LoginAndLogonFragmentDirections.actionLoginAndLogonFragmentToScanBleFragment())
+        findNavController1()?.navigate1(LoginAndLogonFragmentDirections.actionLoginAndLogonFragmentToScanBleFragment())
     }
 
 }

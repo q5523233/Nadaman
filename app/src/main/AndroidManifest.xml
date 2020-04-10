@@ -1,35 +1,86 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.sm.nadaman">
+        xmlns:tools="http://schemas.android.com/tools"
+        package="com.sm.nadaman">
 
-    <application android:allowBackup="true"
-                 android:label="@string/app_name"
-                 android:name="com.techne.nomnompos.app.App"
-                 android:icon="@mipmap/ic_launcher"
-                 android:roundIcon="@mipmap/ic_launcher_round"
-                 android:supportsRtl="true"
-                 android:theme="@style/AppTheme">
-        <activity android:name="com.sm.nadaman.ui.activity.SplashActivity"
-                  android:theme="@style/SplashTheme"
-                  android:screenOrientation="portrait"
-                  android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <!--访问手机-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <!--照相机-->
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.location.gps" />
+    <application
+            android:name="com.techne.nomnompos.app.App"
+            android:allowBackup="true"
+            android:hardwareAccelerated="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:roundIcon="@mipmap/ic_launcher_round"
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme">
+        <provider
+                android:name="androidx.core.content.FileProvider"
+                android:authorities="${applicationId}.android7.fileprovider"
+                android:exported="false"
+                tools:replace="android:authorities"
+                android:grantUriPermissions="true">
+            <meta-data
+                    android:name="androidx.core.FILE_PROVIDER_PATHS"
+                    android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity
+                android:name="com.sm.nadaman.ui.activity.SplashActivity"
+                android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
+                android:screenOrientation="portrait"
+                android:theme="@style/SplashTheme">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name="com.sm.nadaman.ui.activity.WellComeActivity"
-                  android:theme="@style/SplashTheme"
-                  android:screenOrientation="portrait"
-                  android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"/>
-        <activity android:name="com.sm.nadaman.ui.activity.SelectEcgActivity"
-                  android:launchMode="singleTop"
-                  android:screenOrientation="portrait"
-                  android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"/>
-        <activity android:name="com.sm.nadaman.ui.activity.AccountActivity"
-                  android:launchMode="singleTop"
-                  android:screenOrientation="portrait"
-                  android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"/>
+        <activity
+                android:name="com.sm.nadaman.ui.activity.WellComeActivity"
+                android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
+                android:screenOrientation="portrait"
+                android:theme="@style/SplashTheme" />
+        <activity
+                android:name="com.sm.nadaman.ui.activity.SelectEcgActivity"
+                android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
+                android:launchMode="singleTop"
+                android:screenOrientation="portrait" />
+        <activity
+                android:name="com.sm.nadaman.ui.activity.AccountActivity"
+                android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
+                android:launchMode="singleTop"
+                android:screenOrientation="portrait" />
+        <activity
+                android:name="com.sm.nadaman.ui.activity.HomeActivity"
+                android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
+                android:launchMode="singleTask"
+                android:screenOrientation="portrait" />
+        <activity
+                android:name="com.sm.nadaman.ui.activity.EcgActivity"
+                android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
+                android:launchMode="singleTop"
+                android:screenOrientation="portrait" />
+        <activity
+                android:name="com.sm.nadaman.ui.activity.ReportResultActivity"
+                android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
+                android:launchMode="singleTop"
+                android:screenOrientation="portrait" />
+        <activity
+                android:name="com.sm.nadaman.ui.activity.ReportResult12Activity"
+                android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
+                android:launchMode="singleTop"
+                android:screenOrientation="portrait" />
     </application>
 </manifest>
