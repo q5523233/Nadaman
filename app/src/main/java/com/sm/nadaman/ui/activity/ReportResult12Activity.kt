@@ -10,7 +10,17 @@ import com.sm.nadaman.common.http.ApiService
 import com.sm.nadaman.common.http.CacheService
 import com.sm.nadaman.mvp.contract.ReportResult12Contract
 import com.sm.nadaman.mvp.presenter.ReportResult12Presenter
+import kotlinx.android.synthetic.main.activity_report_result.*
 import kotlinx.android.synthetic.main.activity_report_result12.*
+import kotlinx.android.synthetic.main.activity_report_result12.iv_report_level
+import kotlinx.android.synthetic.main.activity_report_result12.iv_smile
+import kotlinx.android.synthetic.main.activity_report_result12.toolbar
+import kotlinx.android.synthetic.main.activity_report_result12.tv_ave
+import kotlinx.android.synthetic.main.activity_report_result12.tv_duration
+import kotlinx.android.synthetic.main.activity_report_result12.tv_max
+import kotlinx.android.synthetic.main.activity_report_result12.tv_min
+import kotlinx.android.synthetic.main.activity_report_result12.tv_report_result
+import kotlinx.android.synthetic.main.activity_report_result12.tv_time
 
 
 class ReportResult12Activity :
@@ -49,6 +59,9 @@ class ReportResult12Activity :
 
     override fun initView() {
         super.initView()
+        toolbar.setNavigationOnClickListener {
+            finish()
+        }
         tv_verdict.text = health.heartStrException
         iv_report_level.setImageResource(pics[health.exceptionLevel])
         iv_smile.setImageResource(smilePics[health.exceptionLevel])

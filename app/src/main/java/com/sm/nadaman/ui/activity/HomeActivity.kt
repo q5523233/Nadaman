@@ -41,15 +41,18 @@ class HomeActivity : BaseActivity<ApiService, CacheService, HomePresenter, Any?>
     }
 
     val healthData: ArrayList<Health> by lazy {
-        ArrayList<Health>().apply {
-            addAll(
-                if (Config.isSingleEcg)
-                    HealthOpe.create().ecgHealthList
-                else
-                    HealthOpe.create().ecg12HealthList
+        ArrayList<Health>()
+    }
+    private fun refershData(){
+        healthData.clear()
+        healthData.addAll(
+            if (Config.isSingleEcg)
+                HealthOpe.create().ecgHealthList
+            else
+                HealthOpe.create().ecg12HealthList
 
-            )
-        }
+        )
+        adapter.notifyDataSetChanged()
     }
 
     override val swipeRefreshView: SmartRefreshLayout?
@@ -102,11 +105,11 @@ class HomeActivity : BaseActivity<ApiService, CacheService, HomePresenter, Any?>
             //todo
         }
 
-
         recycler.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = this@HomeActivity.adapter
         }
+        refershData()
     }
 
     override fun initData() {
@@ -124,6 +127,7 @@ class HomeActivity : BaseActivity<ApiService, CacheService, HomePresenter, Any?>
 
     override fun onResume() {
         super.onResume()
+        refershData()
         banner.start()
     }
 

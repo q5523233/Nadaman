@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/nav_my.xml">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_my.xml"
+    app:startDestination="@id/myFragment">
 
+    <tab_fragment
+        android:id="@+id/myFragment"
+        android:name="com.sm.nadaman.ui.fragment.MyFragment"
+        android:label="MyFragment" />
 </navigation>

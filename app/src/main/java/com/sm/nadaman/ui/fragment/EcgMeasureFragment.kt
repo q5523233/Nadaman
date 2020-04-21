@@ -58,7 +58,9 @@ class EcgMeasureFragment : BaseFragment<ApiService, CacheService, EcgMeasurePres
     }
 
     private val format: SimpleDateFormat by lazy {
-        SimpleDateFormat("HH:mm:ss")
+        SimpleDateFormat("HH:mm:ss").apply {
+            timeZone = TimeZone.getTimeZone("UTC")
+        }
     }
 
     private val countDownTimer = object : CountDownTimer(60 * 1000, 1000) {

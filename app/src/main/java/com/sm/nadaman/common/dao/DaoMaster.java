@@ -21,18 +21,18 @@ public class DaoMaster extends AbstractDaoMaster {
 
     /** Creates underlying database table using DAOs. */
     public static void createAllTables(Database db, boolean ifNotExists) {
+        Ecg12DataDao.createTable(db, ifNotExists);
         FriendDao.createTable(db, ifNotExists);
         HealthDao.createTable(db, ifNotExists);
         UserListDao.createTable(db, ifNotExists);
-        Ecg12DataDao.createTable(db, ifNotExists);
     }
 
     /** Drops underlying database table using DAOs. */
     public static void dropAllTables(Database db, boolean ifExists) {
+        Ecg12DataDao.dropTable(db, ifExists);
         FriendDao.dropTable(db, ifExists);
         HealthDao.dropTable(db, ifExists);
         UserListDao.dropTable(db, ifExists);
-        Ecg12DataDao.dropTable(db, ifExists);
     }
 
     /**
@@ -51,10 +51,10 @@ public class DaoMaster extends AbstractDaoMaster {
 
     public DaoMaster(Database db) {
         super(db, SCHEMA_VERSION);
+        registerDaoClass(Ecg12DataDao.class);
         registerDaoClass(FriendDao.class);
         registerDaoClass(HealthDao.class);
         registerDaoClass(UserListDao.class);
-        registerDaoClass(Ecg12DataDao.class);
     }
 
     public DaoSession newSession() {
