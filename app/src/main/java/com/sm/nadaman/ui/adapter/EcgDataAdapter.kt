@@ -2,6 +2,7 @@ package com.sm.nadaman.ui.adapter
 
 import android.widget.ImageView
 import android.widget.TextView
+import com.chad.library.adapter.base.BaseItemDraggableAdapter
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.sm.nadaman.R
@@ -9,7 +10,7 @@ import com.sm.nadaman.common.bean.Health
 import java.util.*
 
 class EcgDataAdapter(data: ArrayList<Health>, layoutResIdRes: Int = R.layout.item_ecg_data) :
-    BaseQuickAdapter<Health, BaseViewHolder>(layoutResIdRes, data) {
+    BaseItemDraggableAdapter<Health, BaseViewHolder>(layoutResIdRes, data) {
     override fun convert(helper: BaseViewHolder?, item: Health?) {
         item?.let {
             helper?.apply {

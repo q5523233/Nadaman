@@ -1,5 +1,6 @@
 package com.sm.nadaman.ui.activity
 
+import android.graphics.Canvas
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.blackflagbin.kcommon.base.BaseActivity
@@ -17,10 +18,39 @@ import com.sm.nadaman.ui.adapter.BannerViewHolder
 import com.sm.nadaman.ui.adapter.EcgDataAdapter
 import com.zhouwei.mzbanner.MZBannerView
 import kotlinx.android.synthetic.main.activity_home.*
+import androidx.recyclerview.widget.ItemTouchHelper
+import com.chad.library.adapter.base.callback.ItemDragAndSwipeCallback
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import androidx.recyclerview.widget.RecyclerView
+import com.chad.library.adapter.base.listener.OnItemSwipeListener
+import com.trello.rxlifecycle2.RxLifecycle.bindUntilEvent
+
+
 
 
 class HomeActivity : BaseActivity<ApiService, CacheService, HomePresenter, Any?>(),
-    HomeContract.IHomeView {
+    HomeContract.IHomeView, OnItemSwipeListener {
+    override fun clearView(p0: RecyclerView.ViewHolder?, p1: Int) {
+    }
+
+    override fun onItemSwiped(p0: RecyclerView.ViewHolder?, p1: Int) {
+        HealthOpe.create().delHealth(healthData[p1])
+    }
+
+    override fun onItemSwipeStart(p0: RecyclerView.ViewHolder?, p1: Int) {
+
+    }
+
+    override fun onItemSwipeMoving(
+        p0: Canvas?,
+        p1: RecyclerView.ViewHolder?,
+        p2: Float,
+        p3: Float,
+        p4: Boolean
+    ) {
+
+    }
 
     val adapter: EcgDataAdapter by lazy {
         EcgDataAdapter(healthData).apply {
@@ -104,11 +134,15 @@ class HomeActivity : BaseActivity<ApiService, CacheService, HomePresenter, Any?>
         handle_guide.setOnClickListener {
             //todo
         }
-
         recycler.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = this@HomeActivity.adapter
         }
+        val itemDragAndSwipeCallback = ItemDragAndSwipeCallback(adapter)
+        val itemTouchHelper = ItemTouchHelper(itemDragAndSwipeCallback)
+        itemTouchHelper.attachToRecyclerView(recycler)
+        adapter.enableSwipeItem();
+        adapter.setOnItemSwipeListener(this);
         refershData()
     }
 
