@@ -68,6 +68,7 @@ class EcgActivity : BaseActivity<ApiService, CacheService, EcgPresenter, Any?>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         fragmentBottomNavigation.onCreate(savedInstanceState)
+        lastPosition = intent.getIntExtra("index", 0);
         savedInstanceState?.let {
             tab.getTabAt(fragmentBottomNavigation.mCurrentIndex)?.select()
         }

@@ -83,7 +83,8 @@ class EcgMeasureFragment : BaseFragment<ApiService, CacheService, EcgMeasurePres
     private val observable by lazy {
         Observable.interval(1, TimeUnit.SECONDS).observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io()).doOnDispose {
-                stopManualMeasure()
+                if (isStartMeasure)
+                    stopManualMeasure()
             }
     }
     var timer: Disposable? = null
@@ -290,7 +291,7 @@ class EcgMeasureFragment : BaseFragment<ApiService, CacheService, EcgMeasurePres
         bpmList.sort()
         if (bpmList.size < 2) {
             toast("测量失败，没有获取到心率值")
-            return
+            return@doInStop
         }
         maxBpms = bpmList[bpmList.size - 1]
         minBpms = bpmList[0]
@@ -311,13 +312,13 @@ class EcgMeasureFragment : BaseFragment<ApiService, CacheService, EcgMeasurePres
     }
 
     private fun stopManualMeasure() {
+        isStartMeasure = false
         rb_manual.isSelected = false
         timer?.dispose()
         e.nativeAnalysisWave()
         heartException = e.nativeGetArrType()
         getExceptionMsg(heartException)
         doInStop()
-        isStartMeasure = false
         date.time = 0L
         clear()
     }
@@ -446,8 +447,8 @@ class EcgMeasureFragment : BaseFragment<ApiService, CacheService, EcgMeasurePres
                 }
 
                 if (isStartMeasure) {
-//                    if (Integer.parseInt(hr) > 0)
-                    bpmList.add(Integer.parseInt(hr))
+                    if (Integer.parseInt(hr) > 0)
+                        bpmList.add(Integer.parseInt(hr))
                 }
             }
             ACTION_DISCONNECT_BLE -> {
