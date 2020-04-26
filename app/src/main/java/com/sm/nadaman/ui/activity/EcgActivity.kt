@@ -75,7 +75,7 @@ class EcgActivity : BaseActivity<ApiService, CacheService, EcgPresenter, Any?>()
     }
 
     private fun initTab() {
-        tab.setTabTextColors(resources.getColor(R.color.CACACA),resources.getColor(R.color.ecg12_color))
+        tab.setTabTextColors(resources.getColor(R.color.CACACA),if (Config.isSingleEcg) resources.getColor(R.color.ecg1_color) else  resources.getColor(R.color.ecg12_color) )
 
         tab.addTab(
             tab.newTab().setIcon(if (Config.isSingleEcg) R.drawable.tab_ecg_measure else R.drawable.tab_ecg_measure_12).setText(

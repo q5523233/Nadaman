@@ -30,6 +30,7 @@ import com.sm.nadaman.common.widget.ecg.WaveTView
 import com.sm.nadaman.common.widget.ecg.WaveViewConfig
 import com.sm.nadaman.mvp.contract.Ecg12MeasureContract
 import com.sm.nadaman.mvp.presenter.Ecg12MeasurePresenter
+import com.sm.nadaman.ui.activity.ReportResult12Activity
 import com.sm.nadaman.ui.activity.ReportResultActivity
 import kotlinx.android.synthetic.main.fragment_ecg12_measure.*
 import org.greenrobot.eventbus.EventBus
@@ -193,15 +194,16 @@ class Ecg12MeasureFragment : BaseFragment<ApiService, CacheService, Ecg12Measure
 
     private fun start(start: Boolean) {
         if (isStart != start) {
-            isStart = start
             if (isStart) {
                 if (bleUtils.isConnected) {
                     ToastUtils.showShort("设备未连接")
                     isStart = false
                     return
                 }
+            }else{
                 countDownTimer.start()
             }
+            isStart = start
         }
     }
 
@@ -255,6 +257,7 @@ class Ecg12MeasureFragment : BaseFragment<ApiService, CacheService, Ecg12Measure
         getResult()
         tv_start.text = "开始记录"
         tv_bpm.text = "0"
+        isStart = false
         maxBpms = 0
         aveBpms = 0
         minBpms = 0
@@ -296,7 +299,7 @@ class Ecg12MeasureFragment : BaseFragment<ApiService, CacheService, Ecg12Measure
         if (l >= 0) {
             ecg12Data.id = health.id
             ecg12DataDao.insert(ecg12Data)
-            startActivity(ReportResultActivity::class.java, Bundle().apply {
+            startActivity(ReportResult12Activity::class.java, Bundle().apply {
                 putLong("healthId", health.id)
             })
             toast("数据保存成功")
