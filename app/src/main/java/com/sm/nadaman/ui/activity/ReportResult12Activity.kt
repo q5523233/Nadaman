@@ -67,7 +67,7 @@ class ReportResult12Activity :
         iv_report_level.setImageResource(pics[health.exceptionLevel.div(2)])
         iv_smile.setImageResource(smilePics[health.exceptionLevel.div(2)])
         tv_report_result.text =
-            resources.getStringArray(R.array.report_result)[health.exceptionLevel]
+            resources.getStringArray(R.array.report_result)[health.exceptionLevel.div(2)]
         tv_ave.text = "平均心率(bpm):${health.aveHeartRate}"
         tv_max.text = "最高心率(bpm):${health.maxHeartRate}"
         tv_min.text = "最低心率(bpm):${health.minHeartRate}"
