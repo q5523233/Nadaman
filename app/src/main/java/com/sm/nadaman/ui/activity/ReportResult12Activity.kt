@@ -1,5 +1,6 @@
 package com.sm.nadaman.ui.activity
 
+import android.os.Bundle
 import com.blackflagbin.kcommon.base.BaseActivity
 import com.kennyc.view.MultiStateView
 import com.scwang.smartrefresh.layout.SmartRefreshLayout
@@ -63,8 +64,8 @@ class ReportResult12Activity :
             finish()
         }
         tv_verdict.text = health.heartStrException
-        iv_report_level.setImageResource(pics[health.exceptionLevel])
-        iv_smile.setImageResource(smilePics[health.exceptionLevel])
+        iv_report_level.setImageResource(pics[health.exceptionLevel.div(2)])
+        iv_smile.setImageResource(smilePics[health.exceptionLevel.div(2)])
         tv_report_result.text =
             resources.getStringArray(R.array.report_result)[health.exceptionLevel]
         tv_ave.text = "平均心率(bpm):${health.aveHeartRate}"
@@ -72,6 +73,15 @@ class ReportResult12Activity :
         tv_min.text = "最低心率(bpm):${health.minHeartRate}"
         tv_duration.text = "测量时长:${health.measureDuration}秒"
         tv_time.text = "${health.date}"
+        iv_playback.setOnClickListener {
+
+            val bundle = Bundle()
+            bundle.putLong("picId", health.id)
+            bundle.putInt("hr", health.aveHeartRate)
+            bundle.putString("date", health.date)
+//                bundle.putIntArray("points", point);
+            startActivity(LookEcg12PicActivity::class.java, bundle)
+        }
     }
 
     override fun initData() {

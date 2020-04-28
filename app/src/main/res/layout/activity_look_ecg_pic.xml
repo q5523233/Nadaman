@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        app:navigationIcon="@mipmap/rtx_back_white"
+        android:background="@mipmap/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:paddingTop="17dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:text="查看心电图"
+            android:textSize="18sp" />
+    </androidx.appcompat.widget.Toolbar>
+    <RelativeLayout
+        android:id="@+id/act_look_ecg_rl_report_pic"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.sm.nadaman.common.widget.ecg.ReportPicViewTwo
+            android:id="@+id/act_look_ecg_my_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <LinearLayout
+            android:weightSum="22"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_0">
+                <TextView
+                    android:gravity="center"
+                    android:textSize="8sp"
+                    android:textColor="@color/black"
+                    android:text="编号："
+                    android:layout_weight="1"
+                    android:layout_width="@dimen/dimen_0"
+                    android:layout_height="match_parent" />
+                <TextView
+                    android:id="@+id/act_look_ecg_tv_report_pic_id"
+                    android:textColor="@color/black"
+                    android:gravity="left|center_vertical"
+                    android:text="cx"
+                    android:textSize="8sp"
+                    android:layout_weight="1"
+                    android:layout_width="@dimen/dimen_0"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/act_look_ecg_tv_report_pic_time"
+                    android:textColor="@color/black"
+                    android:text="2016-4-26  18：20：10"
+                    android:layout_weight="2.5"
+                    android:gravity="right|center_vertical"
+                    android:layout_marginRight="@dimen/dimen_20"
+                    android:textSize="8sp"
+                    android:layout_width="@dimen/dimen_0"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:background="@android:color/transparent"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_0">
+                <TextView
+                    android:gravity="center"
+                    android:textSize="8sp"
+                    android:textColor="@color/black"
+                    android:text="心率："
+                    android:layout_weight="1"
+                    android:layout_width="@dimen/dimen_0"
+                    android:layout_height="match_parent" />
+                <TextView
+                    android:id="@+id/act_look_ecg_tv_hr"
+                    android:textColor="@color/black"
+                    android:gravity="left|center_vertical"
+                    android:text="正常"
+                    android:textSize="8sp"
+                    android:layout_weight="1"
+                    android:layout_width="@dimen/dimen_0"
+                    android:layout_height="match_parent" />
+                <TextView
+                    android:id="@+id/tv_aument_look_ecg"
+                    android:textColor="@color/black"
+                    android:text="增益：10mm/mv"
+                    android:layout_weight="2"
+                    android:gravity="right|center_vertical"
+                    android:textSize="8sp"
+                    android:layout_width="@dimen/dimen_0"
+                    android:layout_height="match_parent" />
+                <TextView
+                    android:textColor="@color/black"
+                    android:text="走速：25mm/s"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:textSize="8sp"
+                    android:layout_width="@dimen/dimen_0"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</LinearLayout>

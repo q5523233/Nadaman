@@ -1,5 +1,6 @@
 package com.sm.nadaman.ui.activity
 
+import android.os.Bundle
 import com.blackflagbin.kcommon.base.BaseActivity
 import com.kennyc.view.MultiStateView
 import com.scwang.smartrefresh.layout.SmartRefreshLayout
@@ -81,6 +82,15 @@ class ReportResultActivity : BaseActivity<ApiService, CacheService, ReportResult
         tv_time.text = "${health.date}"
         iv_play.setOnClickListener {
             iv_play.isSelected = !iv_play.isSelected
+        }
+
+        iv_check_report_ecg.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putLong("picId", health.id)
+            bundle.putInt("hr", health.aveHeartRate)
+            bundle.putString("date", health.date)
+            bundle.putIntArray("points", point)
+            startActivity(LookEcgPicActivity::class.java, bundle)
         }
         startDraw()
     }
