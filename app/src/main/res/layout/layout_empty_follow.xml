@@ -8,8 +8,8 @@
 
     <ImageView
             android:id="@+id/iv_empty"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="250dp"
+            android:layout_height="200dp"
             android:layout_gravity="center"
             app:srcCompat="@mipmap/empty_follow" />
 
@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center"
-            android:layout_marginBottom="150dp"
+            android:layout_marginBottom="100dp"
             android:text="你还没关注亲友，赶紧添加关注吧！"
             android:textColor="@color/gray_dark1"
             android:textSize="20sp" />

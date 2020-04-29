@@ -44,7 +44,7 @@ import java.util.*
 class Ecg12MeasureFragment : BaseFragment<ApiService, CacheService, Ecg12MeasurePresenter, Any?>(),
     Ecg12MeasureContract.IEcg12MeasureView {
     var isStart = false
-    val picMode = intArrayOf(R.mipmap.stand_12 ,R.mipmap.walk_12 ,R.mipmap.run_12)
+    val picMode = intArrayOf(R.mipmap.stand_12, R.mipmap.walk_12, R.mipmap.run_12)
 
     private var maxBpms: Int = 0  //最大心率
     private var minBpms: Int = 0  //最小心率
@@ -52,10 +52,17 @@ class Ecg12MeasureFragment : BaseFragment<ApiService, CacheService, Ecg12Measure
     private var selectIndex = byteArrayOf(0, 1, 0, 1, 1)
 
     private var time: Long = 0L
+    private var measure: Int = 0
     private var strException: StringBuilder? = null
     private var heartException: IntArray? = null
     private var numException = 0//测量结果级别 来自于heartException最后一位 0 正常 2轻度 4中度 6重度
-    private val countDownTimer = object : CountDownTimer(60 * 1000, 1000) {
+    private var countDownTimer: CountDownTimer = object : CountDownTimer(
+        when (measure) {
+            0 -> 60 * 1000
+            1 -> 30 * 1000
+            else -> 10 * 1000
+        }, 1000
+    ) {
         override fun onFinish() {
             stop()
         }
@@ -170,6 +177,10 @@ class Ecg12MeasureFragment : BaseFragment<ApiService, CacheService, Ecg12Measure
             activity?.finish()
         }
         setting.setOnClickListener {
+            if(isStart){
+                ToastUtils.showShort("测量未结束！")
+                return@setOnClickListener
+            }
             popupView.selectedIndex = selectIndex
             basePopupView.show()
         }
@@ -177,8 +188,8 @@ class Ecg12MeasureFragment : BaseFragment<ApiService, CacheService, Ecg12Measure
 
 
     override fun onStop() {
-            super.onStop()
-            ecg12ViewDataHelper.pause()
+        super.onStop()
+        ecg12ViewDataHelper.pause()
     }
 
     override fun onResume() {
@@ -196,11 +207,11 @@ class Ecg12MeasureFragment : BaseFragment<ApiService, CacheService, Ecg12Measure
         if (isStart != start) {
             if (isStart) {
                 if (bleUtils.isConnected) {
-                    ToastUtils.showShort("设备未连接")
+                    ToastUtils.showShort("设备未连接！")
                     isStart = false
                     return
                 }
-            }else{
+            } else {
                 countDownTimer.start()
             }
             isStart = start
@@ -219,9 +230,32 @@ class Ecg12MeasureFragment : BaseFragment<ApiService, CacheService, Ecg12Measure
     private fun applyConfig(configBean: SettingWindow.ConfigBean) {
         this.selectIndex = configBean.selectedIndex
         e.changeMode(configBean.mode)
+        measure = configBean.measure
+
+        countDownTimer = object : CountDownTimer(
+            when (measure) {
+                0 -> 60 * 1000
+                1 -> 30 * 1000
+                else -> 10 * 1000
+            }, 1000
+        ) {
+            override fun onFinish() {
+                stop()
+            }
+            override fun onTick(millisUntilFinished: Long) {
+                val time = millisUntilFinished / 1000
+                if (time > 0) {
+                    e.getHeartHR()
+                    getExceptionMsg(heartException)
+                    tv_start.text = "${time}sec"
+                }
+            }
+        }
+
         iv_mode.setImageResource(picMode[configBean.mode])
         config.setGain(configBean.gain).setSpeed(configBean.speed)
-        act_measure_ecg12_tv_augment_mv.text = String.format(Locale.CHINA, "%smm/mV", configBean.gain)
+        act_measure_ecg12_tv_augment_mv.text =
+            String.format(Locale.CHINA, "%smm/mV", configBean.gain)
         act_measure_ecg12_tv_speed.text = String.format(Locale.CHINA, "%smm/s", configBean.speed)
         if (displayMode != configBean.displayMode) {
             //changed
@@ -312,10 +346,10 @@ class Ecg12MeasureFragment : BaseFragment<ApiService, CacheService, Ecg12Measure
 
     private fun doInStop() {
         bpmList.sort()
-        if (bpmList.size < 2) {
+        /*if (bpmList.size < 2) {
             toast("测量失败，没有获取到心率值")
             return
-        }
+        }*/
         maxBpms = bpmList[bpmList.size - 1]
         minBpms = bpmList[0]
         aveBpms = e.nativeGetAnaHR()
@@ -348,7 +382,7 @@ class Ecg12MeasureFragment : BaseFragment<ApiService, CacheService, Ecg12Measure
                     time = System.currentTimeMillis()
                 }
                 if (isStart) {
-                    if (Integer.parseInt(hr) > 0)
+//                    if (Integer.parseInt(hr) > 0)
                         bpmList.add(Integer.parseInt(hr))
                 }
             }

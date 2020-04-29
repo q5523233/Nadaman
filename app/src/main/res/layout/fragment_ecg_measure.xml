@@ -63,8 +63,8 @@
 
     <ImageView
             android:id="@+id/rb_fast"
-            android:layout_width="120dp"
-            android:layout_height="65dp"
+            android:layout_width="110dp"
+            android:layout_height="52dp"
             android:background="@drawable/fastmeasure"
             app:layout_constraintBottom_toBottomOf="@id/iv_ecg_measure_bg"
             app:layout_constraintEnd_toStartOf="@id/rb_manual"
@@ -74,8 +74,8 @@
 
     <ImageView
             android:id="@+id/rb_manual"
-            android:layout_width="120dp"
-            android:layout_height="65dp"
+            android:layout_width="110dp"
+            android:layout_height="52dp"
             android:background="@drawable/manualmeasure"
             app:layout_constraintBottom_toBottomOf="@id/rb_fast"
             app:layout_constraintEnd_toEndOf="@id/iv_ecg_measure_bg"
@@ -94,7 +94,7 @@
         <RadioButton
                 android:id="@+id/rb_stand"
                 android:layout_width="0dp"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:layout_weight="1"
                 android:background="@drawable/mode_stand"
                 android:button="@null"
@@ -103,7 +103,7 @@
         <RadioButton
                 android:id="@+id/rb_walk"
                 android:layout_width="0dp"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:layout_weight="1"
                 android:background="@drawable/mode_walk"
                 android:button="@null" />
@@ -111,7 +111,7 @@
         <RadioButton
                 android:id="@+id/rb_run"
                 android:layout_width="0dp"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:layout_weight="1"
                 android:background="@drawable/mode_run"
                 android:button="@null" />

@@ -5,6 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import com.sm.nadaman.common.dao.DaoMaster;
+import com.sm.nadaman.common.dao.Ecg12DataDao;
 import com.sm.nadaman.common.dao.FriendDao;
 import com.sm.nadaman.common.dao.HealthDao;
 
@@ -19,7 +20,7 @@ public class UserInfoDaoMaster extends DaoMaster {
      * Creates underlying database table using DAOs.
      */
     public static void createAllTables(Database db, boolean ifNotExists) {
-        /*Ecg12DataDao.createTable(db, ifNotExists);*/
+        Ecg12DataDao.createTable(db, ifNotExists);
         FriendDao.createTable(db, ifNotExists);
         HealthDao.createTable(db, ifNotExists);
     }
@@ -28,7 +29,7 @@ public class UserInfoDaoMaster extends DaoMaster {
      * Drops underlying database table using DAOs.
      */
     public static void dropAllTables(Database db, boolean ifExists) {
-        /*Ecg12DataDao.dropTable(db, ifExists);*/
+        Ecg12DataDao.dropTable(db, ifExists);
         FriendDao.dropTable(db, ifExists);
         HealthDao.dropTable(db, ifExists);
     }
