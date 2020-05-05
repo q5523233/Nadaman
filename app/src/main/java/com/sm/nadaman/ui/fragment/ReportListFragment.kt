@@ -16,7 +16,8 @@ import com.sm.nadaman.mvp.presenter.ReportListPresenter
 import com.sm.nadaman.ui.activity.ReportResult12Activity
 import com.sm.nadaman.ui.activity.ReportResultActivity
 import com.sm.nadaman.ui.adapter.EcgDataAdapter
-import kotlinx.android.synthetic.main.fragment_report_list.*
+import kotlinx.android.synthetic.main.fragment_report_list.recycler
+import kotlinx.android.synthetic.main.fragment_report_list.toolbar
 
 class ReportListFragment : BaseFragment<ApiService, CacheService, ReportListPresenter, Any?>(),
     ReportListContract.IReportListView {
@@ -63,6 +64,9 @@ class ReportListFragment : BaseFragment<ApiService, CacheService, ReportListPres
         super.initView()
         toolbar.setNavigationOnClickListener {
             findNavController1()?.navigateUp()
+        }
+        if (Config.isSingleEcg.not()){
+            toolbar.setBackgroundResource(R.mipmap.toolbar_12)
         }
         recycler.apply {
             layoutManager = LinearLayoutManager(activity)

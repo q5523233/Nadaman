@@ -16,7 +16,7 @@ import com.sm.nadaman.common.dao.HealthDao;
 public class Health implements Serializable {
     private static final long serialVersionUID = -1L;
 
-    @Id
+    @Id(autoincrement = true)
     private Long Id;
 
     private int aveHeartRate;

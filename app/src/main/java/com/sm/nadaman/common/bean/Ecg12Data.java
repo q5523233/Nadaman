@@ -12,7 +12,7 @@ import org.greenrobot.greendao.annotation.Generated;
 @Entity
 public class Ecg12Data implements Serializable {
     private static final long serialVersionUID = -1L;
-    @Id
+    @Id(autoincrement = true)
     Long id;
     @Convert(converter = StringConverter.class, columnType = String.class)
     List<List<Short>> data;

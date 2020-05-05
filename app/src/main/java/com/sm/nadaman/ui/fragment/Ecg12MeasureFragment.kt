@@ -327,7 +327,11 @@ class Ecg12MeasureFragment : BaseFragment<ApiService, CacheService, Ecg12Measure
         health.ecg12Data = ecg12Data
         health.date = Date().getFormatTime(TIME_FORMAT_YMDHMS)
         health.exceptionLevel = heartException?.get(heartException!!.size - 1) ?: 0
-        health.measureDuration = 10
+        health.measureDuration = when (measure) {
+            0 -> 60
+            1 -> 30
+            else -> 10 
+        }
         health.type = 1
         val l = healthOpe.insertHealth(health)
         if (l >= 0) {

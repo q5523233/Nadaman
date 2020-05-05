@@ -57,7 +57,7 @@ public class HealthDao extends AbstractDao<Health, Long> {
     public static void createTable(Database db, boolean ifNotExists) {
         String constraint = ifNotExists? "IF NOT EXISTS ": "";
         db.execSQL("CREATE TABLE " + constraint + "\"HEALTH\" (" + //
-                "\"_id\" INTEGER PRIMARY KEY ," + // 0: Id
+                "\"_id\" INTEGER PRIMARY KEY AUTOINCREMENT ," + // 0: Id
                 "\"AVE_HEART_RATE\" INTEGER NOT NULL ," + // 1: aveHeartRate
                 "\"MIN_HEART_RATE\" INTEGER NOT NULL ," + // 2: minHeartRate
                 "\"MAX_HEART_RATE\" INTEGER NOT NULL ," + // 3: maxHeartRate
