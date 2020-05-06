@@ -94,5 +94,7 @@ dependencies {
     implementation project(path: ':FastBleLib')
     implementation project(path: ':pickerview')
     implementation project(path: ':matisse')
+    implementation 'com.davemorrissey.labs:subsampling-scale-image-view:3.10.0'
+
 //    implementation project(path: ':calendarview')
 }

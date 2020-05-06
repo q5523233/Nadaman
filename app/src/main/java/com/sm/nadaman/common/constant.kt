@@ -45,7 +45,7 @@ public val GET_ECG12_WAVEFORM_ON = byteArrayOf(0xfa.toByte(), 0x02, 0x12, 0x01, 
 
 
 //时间格式
-val TIME_FORMAT_YMDHMS = "yyyy-MM-dd HH:mm:ss"
+val TIME_FORMAT_YMDHMS = "yyyy-MM-dd \nHH:mm:ss"
 
 const val SP_NAME = "Nomnompos"
 //选择图片

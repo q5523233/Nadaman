@@ -12,7 +12,9 @@ import com.sm.nadaman.common.http.ApiService
 import com.sm.nadaman.common.http.CacheService
 import com.sm.nadaman.mvp.contract.MyContract
 import com.sm.nadaman.mvp.presenter.MyPresenter
+import com.sm.nadaman.ui.activity.DisclaimerActivity
 import com.sm.nadaman.ui.activity.EcgActivity
+import com.sm.nadaman.ui.activity.HandleActivity
 import com.techne.nomnompos.app.App
 import kotlinx.android.synthetic.main.activity_ecg.*
 import kotlinx.android.synthetic.main.fragment_my.*
@@ -40,6 +42,16 @@ class MyFragment : BaseFragment<ApiService, CacheService, MyPresenter, Any?>(), 
 
         tv_history.setOnClickListener {
             (activity as EcgActivity).tab.getTabAt(1)?.select()
+        }
+
+        tv_handle_guide.setOnClickListener {
+            startActivity(HandleActivity::class.java)
+
+        }
+
+        tv_disclaimer.setOnClickListener {
+            startActivity(DisclaimerActivity::class.java)
+
         }
 
         tv_name.text = UserDBController.getInstance().currentUser.userName

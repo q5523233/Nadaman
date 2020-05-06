@@ -74,7 +74,7 @@
             android:textSize="13sp"
             android:textColor="@color/ff9f9f9f"
             app:layout_constraintStart_toStartOf="@id/iv_wechat"
-            app:layout_constraintEnd_toEndOf="@id/iv_share_other"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iv_wechat"
             android:layout_marginTop="18dp"
             android:layout_width="0dp"

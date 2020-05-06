@@ -132,7 +132,7 @@ class HomeActivity : BaseActivity<ApiService, CacheService, HomePresenter, Any?>
             })
         }
         handle_guide.setOnClickListener {
-            //todo
+            startActivity(HandleActivity::class.java)
         }
         recycler.apply {
             layoutManager = LinearLayoutManager(context)

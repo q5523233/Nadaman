@@ -142,7 +142,7 @@
             android:text="2020-02-20 10:11:10"
             android:textColor="@color/ff9f9f9f"
             android:textSize="13sp"
-            app:layout_constraintEnd_toEndOf="@id/iv_share_other"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/iv_wechat"
             app:layout_constraintTop_toBottomOf="@id/iv_wechat" />
 
@@ -162,9 +162,10 @@
             android:layout_height="25dp"
             android:layout_marginEnd="10dp"
             android:src="@mipmap/playback"
+        app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="@id/tv_duration"
             app:layout_constraintDimensionRatio="297:75"
-            app:layout_constraintEnd_toStartOf="@id/iv_wechat"
+            app:layout_constraintStart_toEndOf="@id/tv_duration"
             app:layout_constraintTop_toTopOf="@id/tv_duration" />
 
     <TextView
@@ -196,7 +197,7 @@
             app:layout_constraintTop_toTopOf="@id/tv_max"
             tools:text="最低心率(bpm):96" />
 
-    <ImageView
+<!--    <ImageView
             android:id="@+id/iv_check_report_ecg"
             android:layout_width="0dp"
             android:layout_height="25dp"
@@ -205,7 +206,7 @@
             app:layout_constraintBottom_toBottomOf="@id/iv_wechat"
             app:layout_constraintDimensionRatio="296:75"
             app:layout_constraintEnd_toStartOf="@id/iv_wechat"
-            app:layout_constraintTop_toTopOf="@id/iv_wechat" />
+            app:layout_constraintTop_toTopOf="@id/iv_wechat" />-->
 
     <View
             android:id="@+id/divider"

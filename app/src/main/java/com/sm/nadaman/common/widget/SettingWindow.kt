@@ -20,10 +20,19 @@ class SettingWindow(mContext: Context,val callback: (c:ConfigBean)->Unit) : Bott
 
     override fun onCreate() {
         super.onCreate()
+        tv_cancel.setOnClickListener {
+            dismiss()
+        }
         tv_confirm.setOnClickListener(OnClickListener {
             dismiss()
             getCheckResult()
         })
+        (rg_display.getChildAt(selectedIndex[0].toInt()) as RadioButton).isChecked = true
+        (rg_mode.getChildAt(selectedIndex[1].toInt()) as RadioButton).isChecked = true
+        (rg_measure_time.getChildAt(selectedIndex[2].toInt()) as RadioButton).isChecked = true
+        (rg_speed.getChildAt(selectedIndex[3].toInt()) as RadioButton).isChecked = true
+        (rg_gain.getChildAt(selectedIndex[4].toInt()) as RadioButton).isChecked = true
+
     }
 
     private fun getCheckResult() {

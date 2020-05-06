@@ -184,6 +184,9 @@ class Ecg12MeasureFragment : BaseFragment<ApiService, CacheService, Ecg12Measure
             popupView.selectedIndex = selectIndex
             basePopupView.show()
         }
+        Config.config?.also {
+            applyConfig(it)
+        }
     }
 
 
@@ -228,6 +231,7 @@ class Ecg12MeasureFragment : BaseFragment<ApiService, CacheService, Ecg12Measure
 
 
     private fun applyConfig(configBean: SettingWindow.ConfigBean) {
+        Config.config = configBean
         this.selectIndex = configBean.selectedIndex
         e.changeMode(configBean.mode)
         measure = configBean.measure
@@ -350,10 +354,10 @@ class Ecg12MeasureFragment : BaseFragment<ApiService, CacheService, Ecg12Measure
 
     private fun doInStop() {
         bpmList.sort()
-        /*if (bpmList.size < 2) {
+        if (bpmList.size < 2) {
             toast("测量失败，没有获取到心率值")
             return
-        }*/
+        }
         maxBpms = bpmList[bpmList.size - 1]
         minBpms = bpmList[0]
         aveBpms = e.nativeGetAnaHR()

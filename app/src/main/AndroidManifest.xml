@@ -92,5 +92,15 @@
                 android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
                 android:launchMode="singleTop"
                 android:screenOrientation="portrait" />
+        <activity
+                android:name="com.sm.nadaman.ui.activity.HandleActivity"
+                android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
+                android:launchMode="singleTop"
+                android:screenOrientation="portrait" />
+        <activity
+                android:name="com.sm.nadaman.ui.activity.DisclaimerActivity"
+                android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
+                android:launchMode="singleTop"
+                android:screenOrientation="portrait" />
     </application>
 </manifest>
