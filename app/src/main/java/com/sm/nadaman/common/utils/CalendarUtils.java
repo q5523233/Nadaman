@@ -25,7 +25,7 @@ public class CalendarUtils {
                 ,oldYear = 0;
         Map<String,Calendar> calender = new HashMap<String,Calendar>();
         for (String t : list){
-            Date date = TimeUtils.getDateForString(t, TIME_FORMAT_YMDHMS);
+            Date date = TimeUtils.getDateForString(t.replace("\n",""), TIME_FORMAT_YMDHMS);
             java.util.Calendar instance = java.util.Calendar.getInstance();
             instance.setTime(date);
 
