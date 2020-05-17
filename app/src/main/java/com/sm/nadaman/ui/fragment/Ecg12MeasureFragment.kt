@@ -184,9 +184,14 @@ class Ecg12MeasureFragment : BaseFragment<ApiService, CacheService, Ecg12Measure
             popupView.selectedIndex = selectIndex
             basePopupView.show()
         }
-        Config.config?.also {
-            applyConfig(it)
-        }
+
+
+        tv_start.postDelayed({
+
+            Config.config?.also {
+                applyConfig(it)
+            }
+        },500)
     }
 
 
@@ -203,6 +208,7 @@ class Ecg12MeasureFragment : BaseFragment<ApiService, CacheService, Ecg12Measure
 
     override fun onDestroyView() {
         EventBus.getDefault().unregister(this)
+        countDownTimer.cancel()
         super.onDestroyView()
     }
 
@@ -401,6 +407,7 @@ class Ecg12MeasureFragment : BaseFragment<ApiService, CacheService, Ecg12Measure
             }
         }
     }
+
 
     private fun handleDataFrame(values: ByteArray) {
         val type = ecg2DataFrame.type
